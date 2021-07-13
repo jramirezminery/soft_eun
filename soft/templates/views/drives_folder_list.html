@@ -1,0 +1,36 @@
+<!-- Copyright (c) Microsoft Corporation.
+     Licensed under the MIT License. -->
+
+<!-- <CalendarSnippet> -->
+{% extends "views/layout.html" %}
+{% block content %}
+<h1>Calendar</h1>
+<a href="/calendar/new" class="btn btn-light btn-sm mb-3">Back</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Created DateTime</th>
+      <th scope="col">eTag</th>
+      <th scope="col">Name</th>
+      <th scope="col">Size</th>
+      <th scope="col">Created By</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if driveslistfolder %}
+      {% for drive in driveslistfolder %}
+        <tr>
+          <td>{{ drive.id }}</td>
+          <td>{{ drive.createdDateTime }}</td>
+          <td>{{ drive.eTag }}</td>
+          <td>{{ drive.name }}</td>
+          <td>{{ drive.size }}</td>
+          <td>{{ drive.createdBy.user.displayName }}</td>
+        </tr>
+      {% endfor %}
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}
+<!-- </CalendarSnippet> -->

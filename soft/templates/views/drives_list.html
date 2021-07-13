@@ -1,0 +1,35 @@
+<!-- Copyright (c) Microsoft Corporation.
+     Licensed under the MIT License. -->
+
+<!-- <CalendarSnippet> -->
+{% extends "views/layout.html" %}
+{% block content %}
+<h1>Calendar</h1>
+<a href="/calendar/new" class="btn btn-light btn-sm mb-3">New event</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Created DateTime</th>
+      <th scope="col">Name</th>
+      <th scope="col">Web URLName</th>
+      <th scope="col">Created By</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% if driveslist %}
+      {% for drive in driveslist %}
+        <tr>
+          <td><a href="{% url 'listdriveswithfolder' drive.id %}">{{ drive.id }}</a></td>
+          <td>{{ drive.createdDateTime }}</td>
+          <td>{{ drive.name }}</td>
+          <td>{{ drive.webUrl }}</td>
+          <td>{{ drive.createdBy.user.displayName }}</td>
+        </tr>
+      {% endfor %}
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}
+<!-- </CalendarSnippet> -->
