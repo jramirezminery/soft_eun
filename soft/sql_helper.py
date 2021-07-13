@@ -13,4 +13,4 @@ def get_all_titles_with_levels(level):
     return Title.objects.raw('SELECT * FROM soft_title WHERE level_id = ' + level)
 
 def get_all_hashtag_with_tiitles(title):
-    return Title.objects.raw('SELECT * FROM soft_hashtag WHERE title_id = ' + title)
+    return Hashtag.objects.raw('SELECT * FROM soft_hashtag WHERE title_id = ' + title)
